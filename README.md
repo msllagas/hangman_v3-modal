@@ -1,8 +1,6 @@
 <!-- Heading -->
 # Hangman Version 3 (Modal)
 
----
-
 ### Members
 
 * Llagas, Mandy
