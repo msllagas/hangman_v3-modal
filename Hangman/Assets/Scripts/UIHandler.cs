@@ -53,7 +53,6 @@ public class UIHandler : MonoBehaviour
         UpdatePoints();
 
     } // 45
-
     public void SettingsButton() // top-left corner button
     {
         settingsPanel.SetTrigger("open");
@@ -166,6 +165,7 @@ public class UIHandler : MonoBehaviour
         winPanel.SetTrigger("open");
         VLPanelEnabler();
         audioSource.Stop();
+        //GameManager.instance.winEmoji.SetActive(true);
         if (winnerSound != null)
         {
             audioSource.PlayOneShot(winnerSound, 0.7f);
@@ -178,6 +178,7 @@ public class UIHandler : MonoBehaviour
         gameOverPanel.SetTrigger("open");
         VLPanelEnabler();
         audioSource.Stop();
+        //stopAnim.transform.position = new Vector3(-0.03000019f, 2.08f, 0f);
         if (gameOverSound != null)
         {
             audioSource.PlayOneShot(gameOverSound, 0.7f);

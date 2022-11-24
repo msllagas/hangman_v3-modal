@@ -34,6 +34,15 @@ public class GameManager : MonoBehaviour
     [Header("Mistakes")] // 32
     [Space]
     public Animator[] petalList;
+    public Animator center;
+    [Header("Emojis")] // 32
+    [Space]
+    public GameObject defaultEmoji;
+    public GameObject rightEmoji;
+    public GameObject leftEmoji;
+    public GameObject bottomEmoji;
+    public GameObject loseEmoji;
+    public GameObject winEmoji;
     [SerializeField]
     int maxMistakes;
     int currentMistakes;
@@ -113,6 +122,33 @@ public class GameManager : MonoBehaviour
             // mistake stuff - graphical representation
             petalList[currentMistakes].SetTrigger("miss"); // 32
             currentMistakes++;
+            if(currentMistakes == 6)
+            {
+                defaultEmoji.SetActive(false);
+                rightEmoji.SetActive(true);
+                leftEmoji.SetActive(false);
+                bottomEmoji.SetActive(false);
+                loseEmoji.SetActive(false);
+                winEmoji.SetActive(false);
+            }
+            else if(currentMistakes == 1 || currentMistakes == 2)
+            {
+                defaultEmoji.SetActive(false);
+                rightEmoji.SetActive(false);
+                leftEmoji.SetActive(true);
+                bottomEmoji.SetActive(false);
+                loseEmoji.SetActive(false);
+                winEmoji.SetActive(false);
+            }
+            else if(currentMistakes == 3 || currentMistakes == 4 || currentMistakes == 5)
+            {
+                defaultEmoji.SetActive(false);
+                rightEmoji.SetActive(false);
+                leftEmoji.SetActive(false);
+                loseEmoji.SetActive(false);
+                bottomEmoji.SetActive(true);
+                winEmoji.SetActive(false);
+            }
 
             // and do game over
             if (currentMistakes == maxMistakes) // 32
@@ -120,9 +156,16 @@ public class GameManager : MonoBehaviour
                 // Debug.Log("Lost Game");
                 UIHandler.instance.LoseCondition(playTime); // 38
                 gameOver = true;
-                
+                defaultEmoji.SetActive(false);
+                rightEmoji.SetActive(false);
+                leftEmoji.SetActive(false);
+                bottomEmoji.SetActive(false);
+                loseEmoji.SetActive(true);
+                winEmoji.SetActive(false);
+                center.gameObject.GetComponent<Animator>().enabled = false;
                 return;
             }
+
 
         }
 
@@ -133,6 +176,13 @@ public class GameManager : MonoBehaviour
         {
             // show ui
             UIHandler.instance.WinCondition(playTime);
+            defaultEmoji.SetActive(false);
+            rightEmoji.SetActive(false);
+            leftEmoji.SetActive(false);
+            bottomEmoji.SetActive(false);
+            loseEmoji.SetActive(false);
+            winEmoji.SetActive(true);
+            center.gameObject.GetComponent<Animator>().enabled = false;
         }
     }
 
