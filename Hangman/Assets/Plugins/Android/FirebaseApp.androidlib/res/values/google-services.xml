@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://thesis-48958-default-rtdb.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">387091425488</string>
+  <string name="google_storage_bucket" translatable="false">thesis-48958.appspot.com</string>
+  <string name="project_id" translatable="false">thesis-48958</string>
+  <string name="google_api_key" translatable="false">AIzaSyDchGVMjaLBXdrJGtwBwgdFeTf1u2XyEVY</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDchGVMjaLBXdrJGtwBwgdFeTf1u2XyEVY</string>
+  <string name="google_app_id" translatable="false">1:387091425488:android:2fd7e9d93a31e72dd416d5</string>
+  <string name="default_web_client_id" translatable="false">387091425488-s1jurmoaaiob3uo1nl95sa28gots1ttu.apps.googleusercontent.com</string>
+</resources>
