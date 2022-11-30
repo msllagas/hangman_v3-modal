@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement; // 39
 using UnityEngine.UI;
 using TMPro; // 44
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.Networking;
 
 // 35
 public class UIHandler : MonoBehaviour
@@ -44,7 +44,10 @@ public class UIHandler : MonoBehaviour
 
     void Start()
     {
-
+        /*if (Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork)
+        {
+            Debug.Log("Error. Check internet connection!");
+        }*/
         BackGroundMusic();
         InitialSaveFile();
         UpdateStatsText();
@@ -53,6 +56,7 @@ public class UIHandler : MonoBehaviour
         UpdatePoints();
 
     } // 45
+
     public void SettingsButton() // top-left corner button
     {
         settingsPanel.SetTrigger("open");
