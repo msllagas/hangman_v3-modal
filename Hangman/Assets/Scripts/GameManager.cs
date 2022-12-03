@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
             if (currentMistakes == maxMistakes) // 32
             {
                 // Debug.Log("Lost Game");
-                UIHandler.instance.LoseCondition(playTime, currentMistakes, maxHints); // 38
+                UIHandler.instance.LoseCondition(playTime); // 38
                 gameOver = true;
                 defaultEmoji.SetActive(false);
                 rightEmoji.SetActive(false);
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
         if (gameOver) // 25
         {
             // show ui
-            UIHandler.instance.WinCondition(playTime, currentMistakes, maxHints);
+            UIHandler.instance.WinCondition(playTime);
             defaultEmoji.SetActive(false);
             rightEmoji.SetActive(false);
             leftEmoji.SetActive(false);

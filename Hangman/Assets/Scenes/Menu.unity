@@ -917,11 +917,6 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   hintPanel: {fileID: 0}
   statsText: {fileID: 1762805015}
-  TotalWins: {fileID: 0}
-  TotalLosses: {fileID: 0}
-  GamesPlayed: {fileID: 0}
-  WinRatio: {fileID: 0}
-  FastestTime: {fileID: 0}
   pointsText: {fileID: 0}
   winnerSound: {fileID: 0}
   backgroundSound: {fileID: 0}
@@ -929,80 +924,7 @@ MonoBehaviour:
   clickSound: {fileID: 0}
   audioSource: {fileID: 0}
   bgmSlider: {fileID: 0}
-  TimeonTaskshort:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  TimeonTaskmedium:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  TimeonTasklong:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  NumRepeatTaskLow:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  NumRepeatTaskMed:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  NumRepeatTaskHigh:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  PerformanceLow:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  PerformanceMid:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  PerformanceHigh:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  NumHelpRequestlow:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  NumHelpRequestmed:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  NumHelpRequesthigh:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  victory_losePanel: {fileID: 0}
-  settings_StatsPanel: {fileID: 0}
+  image: {fileID: 0}
 --- !u!4 &271535053
 Transform:
   m_ObjectHideFlags: 0
@@ -3759,10 +3681,8 @@ MonoBehaviour:
 
     Win Rate:
 
-    Motivation
-    Level:
-
-    Central Tend:'
+    Fastest
+    Time:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37019bee008ca2c4c85f238c474340b7, type: 2}
   m_sharedMaterial: {fileID: 8973214066790018233, guid: 37019bee008ca2c4c85f238c474340b7, type: 2}

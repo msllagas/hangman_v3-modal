@@ -27,7 +27,6 @@ public class MenuHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("menuhandler");
         UpdateStatsText();
         LoadBGMSession();
     }
@@ -40,8 +39,7 @@ public class MenuHandler : MonoBehaviour
             "" + statsList.totalLosses + "\n" +
             "" + statsList.gamesPlayed + "\n" +
             "" + statsList.winRatio + "%\n" +
-            "" + statsList.motivationLevel + "s\n" +
-            "" + statsList.centralTend + "s\n";
+            "" + statsList.fastestTime + "s\n";
     } // 45
     public void OpenSettings()
     {
