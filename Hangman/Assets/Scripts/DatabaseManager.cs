@@ -11,7 +11,7 @@ public class DatabaseManager : MonoBehaviour
     public TMP_Text TotalLosses;
     public TMP_Text GamesPlayed;
     public TMP_Text WinRatio;
-    public TMP_Text FastestTime;
+    //public TMP_Text FastestTime;
     // Start is called before the first frame update
     private string userID;
     private DatabaseReference dbReference;
@@ -24,7 +24,7 @@ public class DatabaseManager : MonoBehaviour
     // Update is called once per frame
     public void CreateUser()
     {
-        User newUser = new User(int.Parse(TotalWins.text), int.Parse(TotalLosses.text), int.Parse(GamesPlayed.text), float.Parse(WinRatio.text), int.Parse(FastestTime.text));
+        User newUser = new User(int.Parse(TotalWins.text), int.Parse(TotalLosses.text), int.Parse(GamesPlayed.text), float.Parse(WinRatio.text));
         string json = JsonUtility.ToJson(newUser);
 
         dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);

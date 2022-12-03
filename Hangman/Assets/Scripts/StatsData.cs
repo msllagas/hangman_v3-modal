@@ -11,16 +11,22 @@ public class StatsData
 
     public int gamesPlayed;
     public float winRatio;
-    public int fastestTime;
+    public float actualML;
+    public float totalML;
+    public float centralTend;
+    public float motivationLevel;
+    public int checker;
 
     public int points;
-    public StatsData ( Stats statsdata )
+    public StatsData(Stats statsdata)
     {
         totalWins = statsdata.totalWins;
         totalLosses = statsdata.totalLosses;
         gamesPlayed = statsdata.gamesPlayed;
         winRatio = statsdata.winRatio;
-        fastestTime = statsdata.fastestTime;
+        actualML = statsdata.actualML;
+        totalML = statsdata.totalML;
+        motivationLevel = statsdata.motivationLevel;
+        checker = statsdata.checker;
     }
-
 }
