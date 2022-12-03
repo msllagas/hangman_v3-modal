@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   wordList:
-  - MEET
-  - COOK
   - ACTIVITY
   - ACTRESS
   - AFRAID
@@ -334,8 +332,6 @@ MonoBehaviour:
   - YET
   - YOURS
   definition:
-  - To gather.
-  - Takes place usually in the kitchen.
   - '[n.] a thing that you do for interest or pleasure'
   - '[n.] a woman who performs on the stage, on television or in films, especially
     as a profession'
