@@ -9,15 +9,14 @@ public class User
 
     public int gamesPlayed;
     public float winRatio;
-    public int fastestTime;
+  
 
-    public User(int totalWins, int totalLosses, int gamesPlayed, float winRatio, int fastestTime)
+    public User(int totalWins, int totalLosses, int gamesPlayed, float winRatio)
     {
         this.totalWins = totalWins;
         this.totalLosses = totalLosses;
         this.gamesPlayed = gamesPlayed;
         this.winRatio = winRatio;
-        this.fastestTime = fastestTime;
     }
 
 
