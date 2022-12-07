@@ -16,8 +16,8 @@ public class StatsData
     public float centralTend;
     public float motivationLevel;
     public int checker;
-
-    public int points;
+    public int fastestTime;
+    //public int points;
     public StatsData(Stats statsdata)
     {
         totalWins = statsdata.totalWins;
@@ -28,5 +28,6 @@ public class StatsData
         totalML = statsdata.totalML;
         motivationLevel = statsdata.motivationLevel;
         checker = statsdata.checker;
+        fastestTime = statsdata.fastestTime;
     }
 }
