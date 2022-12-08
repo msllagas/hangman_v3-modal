@@ -24,10 +24,13 @@ public class UIHandler : MonoBehaviour
     public Animator hintPanel;
     [Header("STATS")] // 44
     public TMP_Text statsText; // 44
-    public TMP_Text TotalWins;
+/*    public TMP_Text TotalWins;
     public TMP_Text TotalLosses;
     public TMP_Text GamesPlayed;
     public TMP_Text WinRatio;
+    [Header("Data Placeholder")]
+    public TMP_Text MotivationLevel;
+    public TMP_Text AverageMotivationLevel;*/
     public Stats saveFile; // 44
     [Header("POINTS")]
     public TMP_Text pointsText;
@@ -94,7 +97,7 @@ public class UIHandler : MonoBehaviour
         UpdateStatsText();
         //Load();
         LoadBGMSession();
-        UpdatePoints();
+        //UpdatePoints();
         userID = SystemInfo.deviceUniqueIdentifier;
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
         CreateUser();
@@ -102,11 +105,11 @@ public class UIHandler : MonoBehaviour
     } // 45
     public void CreateUser()
     {
-        User newUser = new User(int.Parse(TotalWins.text), int.Parse(TotalLosses.text), int.Parse(GamesPlayed.text), float.Parse(WinRatio.text));
-        //User newUser = new User(1, 2, 3, 4f, 5);
-        string json = JsonUtility.ToJson(newUser);
+        StatsData statsList = SaveSystem.LoadStats();
+        Player newPlayer = new Player(statsList.motivationLevel, statsList.centralTend); // subject to change
+        string json = JsonUtility.ToJson(newPlayer);
 
-        dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
+        dbReference.Child("players").Child(userID).SetRawJsonValueAsync(json);
     }
     public void SettingsButton() // top-left corner button
     {
@@ -140,24 +143,33 @@ public class UIHandler : MonoBehaviour
     void UpdateStatsText()
     {
       StatsData statsList = SaveSystem.LoadStats(); 
-        statsText.text =
+/*        statsText.text =
             "" + statsList.totalWins + "\n" +
             "" + statsList.totalLosses + "\n" +
             "" + statsList.gamesPlayed + "\n" +
             "" + statsList.winRatio + "%\n" +
             "" + statsList.motivationLevel + "s\n" +
-            "" + statsList.centralTend + "s\n";
+            "" + statsList.centralTend + "s\n";*/
 
+        statsText.text =
+            "" + statsList.totalWins + "\n" +
+            "" + statsList.totalLosses + "\n" +
+            "" + statsList.gamesPlayed + "\n" +
+            "" + statsList.winRatio + "%\n" +
+            "" + statsList.fastestTime + "s\n";
+
+/*        MotivationLevel.text = statsList.motivationLevel.ToString();
+        AverageMotivationLevel.text = statsList.centralTend.ToString();
         TotalWins.text = statsList.totalWins.ToString();
         TotalLosses.text = statsList.totalLosses.ToString();
         GamesPlayed.text = statsList.gamesPlayed.ToString();
-        WinRatio.text = statsList.winRatio.ToString();
+        WinRatio.text = statsList.winRatio.ToString();*/
     } // 45
-    void UpdatePoints()
+/*    void UpdatePoints()
     {
         StatsData statsList = SaveSystem.LoadStats();
         pointsText.text = "" + statsList.points;
-    }
+    }*/
 
     void BackGroundMusic()
     {
@@ -236,11 +248,11 @@ public class UIHandler : MonoBehaviour
         if (statsList.gamesPlayed > 0)
         {
             motivationLevel = rulesEvaluator(timeonTask, numRepeatTask, performance, numHelpRequest);
-            statsFile.SaveStats(true, true, motivationLevel, numRepeatTask); // 44
+            statsFile.SaveStats(true, true, motivationLevel, numRepeatTask, playTime); // 44
         }
         else
         {
-            statsFile.SaveStats(true, false, 1000f, numRepeatTask); // 44
+            statsFile.SaveStats(true, false, 1000f, numRepeatTask, playTime); // 44
         }
 
         winPanel.SetTrigger("open");
@@ -267,11 +279,11 @@ public class UIHandler : MonoBehaviour
         if (statsList.gamesPlayed > 0)
         {
             motivationLevel = rulesEvaluator(timeonTask, numRepeatTask, performance, numHelpRequest);
-            statsFile.SaveStats(false, true, motivationLevel, numRepeatTask); // 44
+            statsFile.SaveStats(false, true, motivationLevel, numRepeatTask, playTime); // 44
         }
         else
         {
-            statsFile.SaveStats(false, false, 1000f, numRepeatTask); // 44
+            statsFile.SaveStats(false, false, 1000f, numRepeatTask, playTime); // 44
         }
 
         gameOverPanel.SetTrigger("open");
