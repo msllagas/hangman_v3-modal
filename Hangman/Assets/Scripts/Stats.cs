@@ -31,7 +31,7 @@ public class Stats
 
         if (hasWonGame)
         {
-            statsList.fastestTime = (playtime >= fastestTime) ? fastestTime : playtime;
+            statsList.fastestTime = (playtime >= statsList.fastestTime) ? statsList.fastestTime : playtime;
         }
 
 
