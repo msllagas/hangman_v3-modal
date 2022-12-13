@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:387091425488:android:2fd7e9d93a31e72dd416d5",
+        "mobilesdk_app_id": "1:387091425488:android:0965b6bdb8fee6e2d416d5",
         "android_client_info": {
-          "package_name": "com.modal.hangman"
+          "package_name": "com.modal.floword"
         }
       },
       "oauth_client": [

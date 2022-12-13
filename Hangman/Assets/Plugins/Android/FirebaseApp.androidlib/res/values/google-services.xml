@@ -6,6 +6,6 @@
   <string name="project_id" translatable="false">thesis-48958</string>
   <string name="google_api_key" translatable="false">AIzaSyDchGVMjaLBXdrJGtwBwgdFeTf1u2XyEVY</string>
   <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDchGVMjaLBXdrJGtwBwgdFeTf1u2XyEVY</string>
-  <string name="google_app_id" translatable="false">1:387091425488:android:2fd7e9d93a31e72dd416d5</string>
+  <string name="google_app_id" translatable="false">1:387091425488:android:0965b6bdb8fee6e2d416d5</string>
   <string name="default_web_client_id" translatable="false">387091425488-s1jurmoaaiob3uo1nl95sa28gots1ttu.apps.googleusercontent.com</string>
 </resources>
