@@ -17,6 +17,7 @@ public class StatsData
     public float motivationLevel;
     public int checker;
     public int fastestTime;
+    public bool isNewPlayer;
     //public int points;
     public StatsData(Stats statsdata)
     {
@@ -30,5 +31,6 @@ public class StatsData
         motivationLevel = statsdata.motivationLevel;
         checker = statsdata.checker;
         fastestTime = statsdata.fastestTime;
+        isNewPlayer = statsdata.isNewPlayer;
     }
 }

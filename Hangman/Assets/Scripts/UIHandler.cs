@@ -80,11 +80,6 @@ public class UIHandler : MonoBehaviour
 
     void Start()
     {
-        /*if (Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork)
-        {
-            Debug.Log("Error. Check internet connection!");
-        }*/
-        Debug.Log("uihandler");
         BackGroundMusic();
         InitialSaveFile();
         UpdateStatsText();
@@ -160,11 +155,6 @@ public class UIHandler : MonoBehaviour
         GamesPlayed.text = statsList.gamesPlayed.ToString();
         WinRatio.text = statsList.winRatio.ToString();*/
     } // 45
-/*    void UpdatePoints()
-    {
-        StatsData statsList = SaveSystem.LoadStats();
-        pointsText.text = "" + statsList.points;
-    }*/
 
     void BackGroundMusic()
     {
@@ -289,6 +279,9 @@ public class UIHandler : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Game");
+        StatsData statsList = SaveSystem.LoadStats();
+        statsList.isNewPlayer = false;
+        SaveSystem.SaveStats(statsList);
         //StartCoroutine(NextLevelAfterWait());
     }
 

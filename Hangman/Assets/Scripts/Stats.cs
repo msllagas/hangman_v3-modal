@@ -15,6 +15,7 @@ public class Stats
     public float actualML;
     public float totalML;
     public float centralTend;
+    public bool isNewPlayer = true;
     public void SaveStats(bool hasWonGame, float calculatedML, int data, int playtime)
     {
 

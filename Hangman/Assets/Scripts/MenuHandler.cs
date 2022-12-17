@@ -15,10 +15,20 @@ public class MenuHandler : MonoBehaviour
     [Header("Animators")]
     public Animator AnimateStats;
     public Animator AnimateSettings;
+    public Animator AnimateGuide;
+
+    [Header("Panel")]
+    public GameObject GuideObj;
+    public GameObject GuidePanel;
 
     [Header("Buttons")]
     public Button StatsButton;
     public Button SettingsButton;
+    public Button GuideButton;
+
+    [Header("Image")]
+    public Image OpenGuidePanel;
+    public Image OpenIfNewPlayer;
 
     [Header("STATS")]
     public TMP_Text statsText;
@@ -27,7 +37,8 @@ public class MenuHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("menuhandler");
+        InitialSaveFile();
+        IdentifyNewPlayer();
         UpdateStatsText();
         LoadBGMSession();
         Firebase.Messaging.FirebaseMessaging.TokenReceived += OnTokenReceived;
@@ -37,12 +48,20 @@ public class MenuHandler : MonoBehaviour
     {
         UnityEngine.Debug.Log("Received Registration Token: " + token.Token);
     }
-
     public void OnMessageReceived(object sender, Firebase.Messaging.MessageReceivedEventArgs e)
     {
         UnityEngine.Debug.Log("Received a new message from: " + e.Message.From);
     }
+    void InitialSaveFile()
+    {
+        Stats statFile = new Stats();
 
+        string path = Application.persistentDataPath + "/stats.save";
+        if (!File.Exists(path))
+        {
+            statFile.InitStats();
+        }
+    }
     void UpdateStatsText()
     {
         StatsData statsList = SaveSystem.LoadStats();
@@ -98,7 +117,55 @@ public class MenuHandler : MonoBehaviour
         StatsButton.enabled = true;
         SettingsButton.enabled = true;
     }
+    public void OpenGuide()
+    {
+        GuidePanel.gameObject.SetActive(true);
+        AnimateGuide.SetTrigger("open");
+        GuidePanelImgEnabler();
+        StatsData statsList = SaveSystem.LoadStats();
+        if (statsList.isNewPlayer)
+        {
+            Debug.Log("You're New");
+            OpenIfNewPlayer.GetComponent<Image>();
+            OpenIfNewPlayer.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("You're old");
+        }
 
+    }
+    public void CloseGuide()
+    {
+        AnimateGuide.SetTrigger("close");
+        GuidePanelImgDisabler();
+    }
+    public void GuidePanelImgEnabler()
+    {
+        OpenGuidePanel.GetComponent<Image>();
+        OpenGuidePanel.gameObject.SetActive(true);
+    }
+    public void GuidePanelImgDisabler()
+    {
+        OpenGuidePanel.GetComponent<Image>();
+        OpenGuidePanel.gameObject.SetActive(false);
+    }
+    public void IdentifyNewPlayer()
+    {
+        StatsData statsList = SaveSystem.LoadStats();
+        if (statsList.isNewPlayer)
+        {
+            Debug.Log("You're New");
+            OpenIfNewPlayer.GetComponent<Image>();
+            OpenIfNewPlayer.gameObject.SetActive(true);
+            GuideButton.GetComponent<Button>();
+            GuideButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("You're old");
+        }
+    }
     public void Save()
     {
         PlayerPrefs.SetFloat("musicVolume", bgmSlider.value);
