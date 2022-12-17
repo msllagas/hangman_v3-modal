@@ -18,6 +18,9 @@ public class StatsData
     public int checker;
     public int fastestTime;
     public bool isNewPlayer;
+    public string firstName;
+    public string lastName;
+    public string fullname;
     //public int points;
     public StatsData(Stats statsdata)
     {
@@ -32,5 +35,8 @@ public class StatsData
         checker = statsdata.checker;
         fastestTime = statsdata.fastestTime;
         isNewPlayer = statsdata.isNewPlayer;
+        firstName = statsdata.firstName;
+        lastName = statsdata.lastName;
+        fullname = statsdata.fullname;
     }
 }

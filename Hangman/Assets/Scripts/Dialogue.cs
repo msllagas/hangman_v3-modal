@@ -55,7 +55,7 @@ public class Dialogue : MonoBehaviour
     {     
         StatsData statsList = SaveSystem.LoadStats();
         index = 0;
-        Lines[0] = "Hey welcome, " + statsList.fastestTime + "!" ;
+        Lines[0] = "Hey there, " + statsList.firstName.Trim() + "! Nice to meet you!";
         StartCoroutine(TypeLine());
     }
 

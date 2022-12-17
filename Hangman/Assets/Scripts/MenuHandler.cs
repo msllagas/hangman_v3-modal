@@ -28,7 +28,8 @@ public class MenuHandler : MonoBehaviour
 
     [Header("Image")]
     public Image OpenGuidePanel;
-    public Image OpenIfNewPlayer;
+    public Image IntroDialog;
+    public Image SecondDialog;
 
     [Header("STATS")]
     public TMP_Text statsText;
@@ -126,8 +127,8 @@ public class MenuHandler : MonoBehaviour
         if (statsList.isNewPlayer)
         {
             Debug.Log("You're New");
-            OpenIfNewPlayer.GetComponent<Image>();
-            OpenIfNewPlayer.gameObject.SetActive(false);
+            SecondDialog.GetComponent<Image>();
+            SecondDialog.gameObject.SetActive(false);
         }
         else
         {
@@ -156,8 +157,8 @@ public class MenuHandler : MonoBehaviour
         if (statsList.isNewPlayer)
         {
             Debug.Log("You're New");
-            OpenIfNewPlayer.GetComponent<Image>();
-            OpenIfNewPlayer.gameObject.SetActive(true);
+            IntroDialog.GetComponent<Image>();
+            IntroDialog.gameObject.SetActive(true);
             GuideButton.GetComponent<Button>();
             GuideButton.gameObject.SetActive(false);
         }
